@@ -92,7 +92,6 @@ const CardsListing = () => {
 				);
 			});
 			setCards(data.slice(0, page * 10));
-			console.log(data.length);
 			setHasMore(page * 10 < data.length);
 		} else if (searching) {
 			let data = [];
@@ -114,7 +113,6 @@ const CardsListing = () => {
 				({ userId }, index) => !ids.includes(userId, index + 1)
 			);
 			setAllUsers(filtered);
-			console.log(page);
 			setCards(res.data.slice(0, page * 10));
 			setHasMore(page * 10 < res.total);
 		}
@@ -158,7 +156,6 @@ const CardsListing = () => {
 				isSelected: id === index ? !exestingCardsTypes[index].isSelected : false
 			};
 		});
-		console.log(exestingCardsTypes);
 		setCardTypes(exestingCardsTypes);
 	};
 

@@ -2,6 +2,8 @@ import { Icon, Tab, Typography } from 'components';
 import React from 'react';
 import styled from 'styled-components';
 
+import { AllRoutes } from 'Routes';
+
 const HeaderWrapper = styled.div`
 	display: flex;
 	border-bottom: 1px solid lightgray;
@@ -85,7 +87,7 @@ const Header = ({ tabs = [], handleTabSelection = () => {} }) => {
 			</HeaderTitleWrapper>
 			<HeaderActionsWrapper>
 				<HeaderTabsWrapper>
-					{tabs?.map((eachTab, id) => (
+					{AllRoutes?.map((eachTab, id) => (
 						<Tab
 							key={id}
 							index={id}

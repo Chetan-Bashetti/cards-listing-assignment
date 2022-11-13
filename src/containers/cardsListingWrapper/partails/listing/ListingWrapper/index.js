@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Card, Filter, Typography, Input, Icon, Loader } from 'components';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useLocation } from 'react-router-dom';
 
 const ListingContainer = styled.div`
 	display: flex;
@@ -32,6 +33,7 @@ const FilterButton = styled.div`
 	display: flex;
 	align-items: center;
 	box-shadow: 2px 2px 8px lightgrey;
+	margin-right: ${(props) => (props?.margin ? props?.margin : '')};
 `;
 
 const SearchWrapper = styled.div`
@@ -49,7 +51,6 @@ const LoaderMessage = styled.div`
 
 const Listing = ({
 	cards = [],
-	selectedTab = '',
 	allUsers,
 	handleUserSelection = () => {},
 	applyFilters = () => {},
@@ -62,11 +63,19 @@ const Listing = ({
 	hasMore,
 	setIsFiltered = () => {}
 }) => {
+	let location = useLocation();
 	const [isFilter, setIsFilter] = React.useState(false);
 	const [isSearch, setIsSearch] = React.useState(false);
+
+	const handleClear = () => {
+		setIsFilter(false);
+		setIsFiltered({});
+		getCards(1);
+	};
+
 	return (
 		<ListingContainer>
-			{selectedTab === 'all' ? (
+			{location.pathname === '/' ? (
 				<ListFilterWrapper>
 					<SearchWrapper>
 						{isSearch ? (
@@ -81,6 +90,15 @@ const Listing = ({
 							right='35px'
 						/>
 					</SearchWrapper>
+					<FilterButton onClick={() => handleClear()} margin='1em'>
+						<Icon
+							icon='refresh'
+							color='#494646'
+							size='1em'
+							margin='0 0.5em 0 0'
+						/>
+						<Typography color='#494646' text='Refresh' fontSize='0.8em' />
+					</FilterButton>
 					<FilterButton onClick={() => setIsFilter(!isFilter)}>
 						<Icon
 							icon='filter_list'
@@ -108,37 +126,27 @@ const Listing = ({
 			) : (
 				''
 			)}
-			{selectedTab !== 'blocked' ? (
-				<InfiniteScroll
-					dataLength={cards.length}
-					next={loadMore}
-					hasMore={hasMore}
-					loader={<Loader />}
-					endMessage={
-						<LoaderMessage>
-							<Typography
-								text='All records loaded'
-								color='#494646'
-								fontSize='1em'
-							/>
-						</LoaderMessage>
-					}
-				>
-					<ListingWrapper>
-						{cards
-							?.filter((eachCard) =>
-								selectedTab === 'your'
-									? eachCard.owner_id === 1
-									: eachCard.owner_id
-							)
-							?.map((eachCard) => (
-								<Card eachCard={eachCard} key={eachCard.id} />
-							))}
-					</ListingWrapper>
-				</InfiniteScroll>
-			) : (
-				''
-			)}
+			<InfiniteScroll
+				dataLength={cards.length}
+				next={loadMore}
+				hasMore={hasMore}
+				loader={<Loader />}
+				endMessage={
+					<LoaderMessage>
+						<Typography
+							text='All records loaded'
+							color='#494646'
+							fontSize='1em'
+						/>
+					</LoaderMessage>
+				}
+			>
+				<ListingWrapper>
+					{cards?.map((eachCard) => (
+						<Card eachCard={eachCard} key={eachCard.id} />
+					))}
+				</ListingWrapper>
+			</InfiniteScroll>
 		</ListingContainer>
 	);
 };

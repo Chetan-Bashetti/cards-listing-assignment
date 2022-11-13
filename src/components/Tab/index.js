@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BUTTON_POSTIVE } from 'theme';
+import { useLocation, Link } from 'react-router-dom';
 
 const StyledTab = styled.div`
 	margin: 0em 1em;
@@ -12,14 +13,18 @@ const StyledTab = styled.div`
 	top: 2px;
 `;
 
-const Tab = ({ eachTab = {}, handleTabSelection = () => {}, index = 0 }) => {
+const Tab = ({ eachTab = {} }) => {
+	let location = useLocation();
+
 	return (
-		<StyledTab
-			isSelected={eachTab.isSelected}
-			onClick={() => handleTabSelection(index)}
+		<Link
+			to={eachTab.route}
+			style={{ textDecoration: 'none', color: '#909090' }}
 		>
-			{eachTab.label}
-		</StyledTab>
+			<StyledTab isSelected={location.pathname === eachTab.route}>
+				{eachTab.label}
+			</StyledTab>
+		</Link>
 	);
 };
 

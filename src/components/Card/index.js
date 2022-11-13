@@ -84,7 +84,11 @@ const Card = ({ eachCard = {} }) => {
 						/>
 					</CardDataWrapper>
 					<CardTypeIcon>
-						<Icon icon='mode_heat' color='#eb4869' />
+						{eachCard.card_type === 'burner' ? (
+							<Icon icon='mode_heat' color='#eb4869' />
+						) : (
+							<Icon icon='cached' color='#eb4869' weight='bolder' />
+						)}
 					</CardTypeIcon>
 				</CardInfo>
 				<CardInfo>

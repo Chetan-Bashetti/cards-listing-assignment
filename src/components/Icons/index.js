@@ -8,9 +8,19 @@ const StyledIcon = styled.span`
 	right: ${(props) => (props.right ? props.right : 'LIT_GRAY')};
 	font-size: ${(props) => (props.size ? props.size : 'LIT_GRAY')};
 	margin: ${(props) => (props?.margin ? props?.margin : '')};
+	font-weight: ${(props) => (props?.weight ? props?.weight : '')};
 `;
 
-const Icon = ({ icon, color, onClick, position, right, size, margin }) => {
+const Icon = ({
+	icon,
+	color,
+	onClick,
+	position,
+	right,
+	size,
+	margin,
+	weight
+}) => {
 	return (
 		<StyledIcon
 			className='material-symbols-outlined'
@@ -20,6 +30,7 @@ const Icon = ({ icon, color, onClick, position, right, size, margin }) => {
 			right={right}
 			size={size}
 			margin={margin}
+			weight={weight}
 		>
 			{icon}
 		</StyledIcon>

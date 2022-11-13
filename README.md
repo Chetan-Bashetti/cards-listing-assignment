@@ -12,6 +12,8 @@
 ## Highlights
 
 - No 3rd party component librarys are used, all components are designed using Styled Components.
+- For fonts used google fonts and icons.
+- Published on Netlify CI/CD
 
 ## Getting started
 
@@ -28,3 +30,7 @@
 - Once you scroll down infinite scroll will call load more function to load next set of cards
 - Click on filter button this will open a filter UI where you can filter based card type and exesting user.
 - Next to filter there will be a search icon on click of that it will toggle a search box this can be used to search cards based on card name
+
+## Available on
+
+- UI - https://virtual-cards-listing.netlify.app/

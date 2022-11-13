@@ -126,6 +126,11 @@ const CardsListing = () => {
 		});
 		setSelectedTab(exestingTabs[index].value);
 		setTabs(exestingTabs);
+		if (exestingTabs[index].value === 'your') {
+			getCards(1, true, false, { owner_id: 1 });
+		} else {
+			getCards(1);
+		}
 	};
 
 	const handleUserSelection = (index) => {

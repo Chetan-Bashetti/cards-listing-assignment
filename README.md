@@ -1,6 +1,6 @@
 # Cards listing
 
-- This project is created using CRA - Create-react-app
+- This project is created using CRA - create-react-app
 
 ## Features
 

@@ -1,0 +1,6 @@
+const PRIMARY_COLOR = 'black';
+const SECONDARY_COLOR = '#494646';
+const BUTTON_POSTIVE = '#eb4869';
+const LIT_GRAY = 'lightgray';
+
+export { PRIMARY_COLOR, SECONDARY_COLOR, BUTTON_POSTIVE, LIT_GRAY };

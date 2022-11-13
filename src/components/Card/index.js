@@ -119,14 +119,12 @@ const Card = ({ eachCard = {} }) => {
 				<ExpensesWrapper>
 					<Dot bg='#eb4869' />
 					<Exppenses>
-						<Typography text={'Spent'} color='#979ea5' fontSize='0.8em' />
+						<Typography text={'Spent'} color='#303030' fontSize='0.8em' />
 						<Typography
-							text={eachCard.spent.value}
-							color='#979ea5'
+							text={eachCard.spent.value + ' SGD'}
+							color='#303030'
 							fontSize='0.8em'
-							margin='0.1em 0.8em'
 							transform='uppercase'
-							weight='bold'
 						/>
 					</Exppenses>
 				</ExpensesWrapper>
@@ -135,16 +133,14 @@ const Card = ({ eachCard = {} }) => {
 					<Exppenses>
 						<Typography
 							text='Available to spend'
-							color='#979ea5'
+							color='#303030'
 							fontSize='0.8em'
 						/>
 						<Typography
-							text={eachCard.available_to_spend.value}
-							color='#979ea5'
+							text={eachCard.available_to_spend.value + ' SGD'}
+							color='#303030'
 							fontSize='0.8em'
-							margin='0.1em 0.8em'
 							transform='uppercase'
-							weight='bold'
 						/>
 					</Exppenses>
 				</ExpensesWrapper>

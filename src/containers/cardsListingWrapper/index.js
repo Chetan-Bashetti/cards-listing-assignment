@@ -213,6 +213,7 @@ const CardsListing = () => {
 				setSearchKey={handleChange}
 				loadMore={loadMore}
 				hasMore={hasMore}
+				setIsFiltered={setIsFiltered}
 			/>
 		</ListWrapper>
 	);

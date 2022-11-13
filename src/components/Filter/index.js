@@ -59,11 +59,13 @@ const Filter = ({
 	applyFilters = () => {},
 	getCards = () => {},
 	cardTypes = [],
-	handleCardSelection = () => {}
+	handleCardSelection = () => {},
+	setIsFiltered = () => {}
 }) => {
 	const handleClear = () => {
-		getCards(1);
 		setIsFilter(false);
+		setIsFiltered({});
+		getCards(1);
 	};
 	return (
 		<FilterWrapper>

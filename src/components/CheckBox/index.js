@@ -7,6 +7,7 @@ const CheckBoxWrapper = styled.div`
 	flex-direction: row;
 	width: 100%;
 	align-items: center;
+	cursor: pointer;
 `;
 
 const StyledCheckbox = styled.div`

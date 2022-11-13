@@ -59,7 +59,8 @@ const Listing = ({
 	searchKey,
 	setSearchKey,
 	loadMore,
-	hasMore
+	hasMore,
+	setIsFiltered = () => {}
 }) => {
 	const [isFilter, setIsFilter] = React.useState(false);
 	const [isSearch, setIsSearch] = React.useState(false);
@@ -98,6 +99,7 @@ const Listing = ({
 							getCards={getCards}
 							handleCardSelection={handleCardSelection}
 							cardTypes={cardTypes}
+							setIsFiltered={setIsFiltered}
 						/>
 					) : (
 						''

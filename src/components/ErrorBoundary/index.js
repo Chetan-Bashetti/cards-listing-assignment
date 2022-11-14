@@ -1,3 +1,4 @@
+import Button from 'components/Button';
 import React from 'react';
 
 class ErrorBoundary extends React.Component {
@@ -22,9 +23,9 @@ class ErrorBoundary extends React.Component {
 						<br />
 						{this.state.errorInfo.componentStack}
 					</details>
-					<button onClick={() => window.location.reload()}>
+					<Button onClick={() => window.location.reload()}>
 						Please reload the UI
-					</button>
+					</Button>
 				</div>
 			);
 		}

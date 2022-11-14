@@ -34,7 +34,7 @@ const All = () => {
 		filters,
 		searchText
 	) => {
-		let res = await fetch('http://localhost:3000/cardsData.json')
+		let res = await fetch('/cardsData.json')
 			.then((res) => res.json())
 			.then((data) => data);
 
